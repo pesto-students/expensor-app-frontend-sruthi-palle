@@ -4,8 +4,15 @@ import styled from "styled-components";
 import avatar from "../../img/avatar.png";
 import { signout } from "../../utils/Icons";
 import { menuItems } from "../../utils/menuItems";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 function Navigation({ active, setActive }) {
+  const navigate = useNavigate();
+  const signOut = () => {
+    Cookies.remove("token");
+    navigate("/login");
+  };
   return (
     <NavStyled>
       <div className="user-con">
@@ -29,7 +36,7 @@ function Navigation({ active, setActive }) {
           );
         })}
       </ul>
-      <div className="bottom-nav">
+      <div className="bottom-nav" onClick={signOut}>
         <Link to="/login">
           <li>{signout} Sign Out</li>
         </Link>
