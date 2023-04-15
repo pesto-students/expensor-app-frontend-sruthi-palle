@@ -29,7 +29,7 @@ export default function Login() {
     });
     console.log(form);
     const response = await axios
-      .post("http://localhost:5000/api/v1/login", form, {
+      .post("https://expensor-app-cz86.onrender.com/api/v1/login", form, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -40,7 +40,7 @@ export default function Login() {
     console.log(response);
     const { token } = await response.data;
     console.log(token);
-    if (response?.statusText) {
+    if (response?.status === 200) {
       Cookies.set("token", token);
       navigate("/");
       //<Navigate to="/" />;

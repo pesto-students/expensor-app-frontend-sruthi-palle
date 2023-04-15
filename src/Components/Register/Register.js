@@ -29,7 +29,7 @@ export default function Register() {
     });
     console.log(form);
     const response = await axios
-      .post("http://localhost:5000/api/v1/register", form, {
+      .post("https://expensor-app-cz86.onrender.com/api/v1/register", form, {
         headers: {
           "Content-Type": "application/json",
         },

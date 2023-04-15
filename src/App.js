@@ -14,7 +14,10 @@ const App = () => {
           element={token ? <Home /> : <Navigate to="/login" replace={true} />}
         />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={token ? <Navigate to="/" replace={true} /> : <Login />}
+        />
       </Routes>
     </BrowserRouter>
   );
